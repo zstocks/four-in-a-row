@@ -8,6 +8,22 @@ class Player {
  }
 
  /**
+  * Places all unused tokens into an array
+  * @return (array) An array of unused tokens
+  */
+ get unusedTokens() {
+  return this.tokens.filter(token => !token.dropped);
+ }
+
+ /**
+  * Gets the currently active token to display on screen
+  * @return (Object) the active token to render of the screen
+  */
+ get activeToken() {
+  return this.unusedTokens[0];
+ }
+
+ /**
  * Creates token objects for player
  * @param {number} num - Number of token objects to be created
  * @returns {Array} An array of the newly created token objects
@@ -21,10 +37,5 @@ class Player {
   }
 
   return tokens;
- }
-
- placeToken() {
-  // decrease token count by 1
-  // check for winners -> end game or switch turns
  }
 }
